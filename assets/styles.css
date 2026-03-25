@@ -223,7 +223,7 @@ code {
 }
 
 .authors-academic span:not(:last-child)::after {
-  content: "\00a0|\00a0";
+  content: ",\00a0";
   color: #9aa8b9;
   font-weight: 400;
 }
@@ -266,7 +266,7 @@ code {
 
 .affiliation-line span:not(:last-child)::after,
 .affiliation-note span:not(:last-child)::after {
-  content: "\00a0|\00a0";
+  content: ",\00a0";
   color: #b0bccb;
 }
 
@@ -282,6 +282,7 @@ code {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   min-height: 48px;
   padding: 0 20px;
   border: 1px solid transparent;
@@ -308,6 +309,25 @@ code {
   color: var(--text);
 }
 
+.button-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.button-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .button.is-disabled {
   opacity: 0.7;
   pointer-events: none;
@@ -315,8 +335,8 @@ code {
 
 .hero-panel {
   display: grid;
-  grid-template-columns: 1.7fr 1fr;
-  gap: 18px;
+  grid-template-columns: 1fr;
+  gap: 20px;
   margin-top: 34px;
 }
 
@@ -324,6 +344,11 @@ code {
 .stack {
   display: grid;
   gap: 18px;
+}
+
+.hero-notes {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
 }
 
 .panel-card,
@@ -340,7 +365,7 @@ code {
 }
 
 .panel-card-large {
-  min-height: 260px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -408,6 +433,56 @@ code {
   gap: 18px;
 }
 
+.benchmark-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: 18px;
+}
+
+.benchmark-card h3 {
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.benchmark-table th,
+.benchmark-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e8edf5;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.benchmark-table thead th {
+  color: #4c6077;
+  background: #f7f9fc;
+  font-weight: 700;
+}
+
+.benchmark-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.benchmark-table .highlight-row td {
+  background: #f2f7ff;
+  font-weight: 700;
+}
+
+.benchmark-table .split-row td {
+  padding: 4px 0;
+  border-bottom: 0;
+  background: transparent;
+}
+
 .feature-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -449,46 +524,6 @@ code {
   color: var(--muted);
 }
 
-.video-card {
-  padding: 0;
-  overflow: hidden;
-}
-
-.video-placeholder {
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 14px;
-  padding: 32px;
-  text-align: center;
-  background:
-    radial-gradient(circle at top, rgba(63, 124, 244, 0.08), transparent 40%),
-    linear-gradient(180deg, #ffffff, #fafcff);
-}
-
-.video-placeholder h3 {
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-  letter-spacing: -0.03em;
-}
-
-.video-placeholder p {
-  max-width: 720px;
-  margin: 0 auto;
-  color: var(--muted);
-}
-
-.video-badge {
-  align-self: center;
-  padding: 8px 14px;
-  border: 1px solid #dbe5f2;
-  border-radius: 999px;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.78rem;
-}
-
 .results-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-bottom: 18px;
@@ -508,39 +543,6 @@ code {
 }
 
 .stat-copy {
-  color: var(--muted);
-}
-
-.resource-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.resource-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-height: 144px;
-  padding: 24px;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.resource-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(136, 240, 255, 0.3);
-}
-
-.resource-card.muted {
-  opacity: 0.78;
-}
-
-.resource-title {
-  font-size: 1.12rem;
-  font-weight: 700;
-}
-
-.resource-copy {
   color: var(--muted);
 }
 
@@ -594,10 +596,11 @@ code {
 
 @media (max-width: 1024px) {
   .hero-panel,
+  .hero-notes,
+  .benchmark-grid,
   .method-layout,
   .feature-grid,
-  .results-grid,
-  .resource-grid {
+  .results-grid {
     grid-template-columns: 1fr;
   }
 }
