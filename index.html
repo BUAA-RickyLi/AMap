@@ -44,7 +44,7 @@
 
       <div class="hero-content">
         <p class="eyebrow">CVPR 2026 Accepted Paper</p>
-        <h1>AMap: Distilling Future Priors for Ahead-Aware Online HD Map Construction</h1>
+        <h1>AMap: Distilling Future Priors for<br>Ahead-Aware Online HD Map Construction</h1>
 
         <div class="authors authors-academic">
           <span>Ruikai Li<sup>1,2,*</sup></span>
@@ -161,6 +161,7 @@
                 <thead>
                   <tr>
                     <th>Method</th>
+                    <th>Temporal</th>
                     <th>Backbone</th>
                     <th>mAP</th>
                     <th>A-mAP</th>
@@ -169,19 +170,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>MapTR</td><td>R50</td><td>44.10</td><td>45.01</td><td>48.87</td><td>17.2</td></tr>
-                  <tr><td>GeMap</td><td>R50</td><td>51.26</td><td>51.61</td><td>54.74</td><td>13.7</td></tr>
-                  <tr><td>MGMap</td><td>R50</td><td>53.15</td><td>55.13</td><td>56.78</td><td>12.4</td></tr>
-                  <tr><td>MapTRv2</td><td>R50</td><td>61.38</td><td>64.21</td><td>61.82</td><td>14.4</td></tr>
-                  <tr><td>MapQR</td><td>R50</td><td>66.35</td><td>68.38</td><td>65.59</td><td>12.4</td></tr>
-                  <tr><td>MapTracker</td><td>R50</td><td>68.30</td><td>69.30</td><td>69.47</td><td>20.1</td></tr>
-                  <tr class="highlight-row"><td>AMap</td><td>R50</td><td>69.26</td><td>70.19</td><td>69.61</td><td>20.1</td></tr>
-                  <tr class="split-row"><td colspan="6"></td></tr>
-                  <tr><td>MapTR</td><td>R18</td><td>32.35</td><td>36.34</td><td>32.76</td><td>31.4</td></tr>
-                  <tr><td>MapTRv2</td><td>R18</td><td>57.15</td><td>60.81</td><td>56.17</td><td>16.6</td></tr>
-                  <tr><td>MapQR</td><td>R18</td><td>62.31</td><td>64.70</td><td>63.13</td><td>13.7</td></tr>
-                  <tr><td>MapTracker</td><td>R18</td><td>62.81</td><td>64.63</td><td>64.04</td><td>31.5</td></tr>
-                  <tr class="highlight-row"><td>AMap</td><td>R18</td><td>64.49</td><td>66.28</td><td>65.11</td><td>31.5</td></tr>
+                  <tr class="group-row"><td colspan="7">Temporal models</td></tr>
+                  <tr><td>MapTR (GKT)</td><td>Yes</td><td>R50</td><td>51.28</td><td>52.23</td><td>55.22</td><td>14.7</td></tr>
+                  <tr><td>MapTR (BEVFormer)</td><td>Yes</td><td>R50</td><td>53.29</td><td>53.69</td><td>55.18</td><td>15.6</td></tr>
+                  <tr><td>StreamMapNet</td><td>Yes</td><td>R50</td><td>51.15</td><td>54.94</td><td>50.94</td><td>15.7</td></tr>
+                  <tr><td>HRMapNet</td><td>Yes</td><td>R50</td><td>64.53</td><td>62.34</td><td>69.51</td><td>16.2</td></tr>
+                  <tr><td>MapTracker</td><td>Yes</td><td>R18</td><td>69.34</td><td>66.86</td><td>76.51</td><td>22.3</td></tr>
+                  <tr><td>MapTracker</td><td>Yes</td><td>R50</td><td>72.93</td><td>70.03</td><td>78.92</td><td>15.6</td></tr>
+                  <tr class="split-row"><td colspan="7"></td></tr>
+                  <tr class="group-row"><td colspan="7">Current-frame models</td></tr>
+                  <tr><td>MapTR</td><td>No</td><td>R50</td><td>44.10</td><td>45.01</td><td>48.87</td><td>17.2</td></tr>
+                  <tr><td>GeMap</td><td>No</td><td>R50</td><td>51.26</td><td>51.61</td><td>54.74</td><td>13.7</td></tr>
+                  <tr><td>MGMap</td><td>No</td><td>R50</td><td>53.15</td><td>55.13</td><td>56.78</td><td>12.4</td></tr>
+                  <tr><td>MapTRv2</td><td>No</td><td>R50</td><td>61.38</td><td>64.21</td><td>61.82</td><td>14.4</td></tr>
+                  <tr><td>MapQR</td><td>No</td><td>R50</td><td>66.35</td><td>68.38</td><td>65.59</td><td>12.4</td></tr>
+                  <tr><td>MapTracker</td><td>No</td><td>R50</td><td>68.30</td><td>69.30</td><td>69.47</td><td>20.1</td></tr>
+                  <tr class="highlight-row"><td>AMap</td><td>No</td><td>R50</td><td>69.26</td><td>70.19</td><td>69.61</td><td>20.1</td></tr>
+                  <tr class="split-row"><td colspan="7"></td></tr>
+                  <tr><td>MapTR</td><td>No</td><td>R18</td><td>32.35</td><td>36.34</td><td>32.76</td><td>31.4</td></tr>
+                  <tr><td>MapTRv2</td><td>No</td><td>R18</td><td>57.15</td><td>60.81</td><td>56.17</td><td>16.6</td></tr>
+                  <tr><td>MapQR</td><td>No</td><td>R18</td><td>62.31</td><td>64.70</td><td>63.13</td><td>13.7</td></tr>
+                  <tr><td>MapTracker</td><td>No</td><td>R18</td><td>62.81</td><td>64.63</td><td>64.04</td><td>31.5</td></tr>
+                  <tr class="highlight-row"><td>AMap</td><td>No</td><td>R18</td><td>64.49</td><td>66.28</td><td>65.11</td><td>31.5</td></tr>
                 </tbody>
               </table>
             </div>

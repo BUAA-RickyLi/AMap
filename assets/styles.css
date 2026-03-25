@@ -175,9 +175,9 @@ code {
 }
 
 .hero-content h1 {
-  max-width: 860px;
+  max-width: 980px;
   margin: 14px auto 0;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.9rem, 3.6vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   text-align: center;
@@ -231,6 +231,8 @@ code {
 .authors sup,
 .affiliations sup {
   font-size: 0.72em;
+  vertical-align: super;
+  line-height: 0;
 }
 
 .affiliations {
@@ -475,6 +477,16 @@ code {
 .benchmark-table .highlight-row td {
   background: #f2f7ff;
   font-weight: 700;
+}
+
+.benchmark-table .group-row td {
+  padding: 8px 12px;
+  background: #fbfcfe;
+  color: #5d7086;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .benchmark-table .split-row td {
