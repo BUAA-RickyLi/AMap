@@ -174,6 +174,12 @@ code {
   letter-spacing: 0.16em;
 }
 
+.eyebrow {
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
 .hero-content h1 {
   max-width: 980px;
   margin: 14px auto 0;
@@ -217,8 +223,7 @@ code {
 }
 
 .authors-academic span {
-  display: inline-flex;
-  align-items: baseline;
+  display: inline;
   white-space: nowrap;
 }
 
@@ -230,8 +235,9 @@ code {
 
 .authors sup,
 .affiliations sup {
-  font-size: 0.72em;
-  vertical-align: super;
+  position: relative;
+  top: -0.42em;
+  font-size: 0.68em;
   line-height: 0;
 }
 
@@ -262,8 +268,7 @@ code {
 
 .affiliation-line span,
 .affiliation-note span {
-  display: inline-flex;
-  align-items: baseline;
+  display: inline;
 }
 
 .affiliation-line span:not(:last-child)::after,
@@ -435,9 +440,10 @@ code {
   gap: 18px;
 }
 
-.benchmark-grid {
+.benchmark-grid,
+.benchmark-stack {
   display: grid;
-  grid-template-columns: 1.35fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 18px;
 }
 
@@ -610,6 +616,7 @@ code {
   .hero-panel,
   .hero-notes,
   .benchmark-grid,
+  .benchmark-stack,
   .method-layout,
   .feature-grid,
   .results-grid {

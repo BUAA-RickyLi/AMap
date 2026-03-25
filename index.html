@@ -35,8 +35,8 @@
         </a>
         <div class="topbar-nav">
           <a class="topbar-link" href="#abstract">Abstract</a>
-          <a class="topbar-link" href="#benchmark">Benchmark</a>
           <a class="topbar-link" href="#method">Method</a>
+          <a class="topbar-link" href="#benchmark">Benchmark</a>
           <a class="topbar-link" href="#qualitative">Qualitative</a>
           <a class="topbar-link" href="#citation">Citation</a>
         </div>
@@ -148,12 +148,55 @@
         </div>
       </section>
 
+      <section class="section" id="method">
+        <div class="section-heading">
+          <p class="section-kicker">Method</p>
+          <h2>Framework</h2>
+        </div>
+        <div class="method-layout">
+          <div class="card figure-card">
+            <img
+              class="content-image"
+              src="assets/images/framework.png"
+              alt="Overview of the AMap framework"
+            >
+            <p class="figure-caption">
+              Overview of the AMap framework. A future-aware teacher distills prospective knowledge into a
+              current-frame student using multi-level BEV distillation and asymmetric query adaptation.
+            </p>
+          </div>
+          <div class="stack">
+            <article class="card">
+              <h3>1. Distill-from-Future Paradigm</h3>
+              <p>
+                A teacher model sees future temporal context during training, while the student is restricted
+                to the current frame and learns future-aware priors implicitly.
+              </p>
+            </article>
+            <article class="card">
+              <h3>2. Multi-Level BEV Distillation</h3>
+              <p>
+                Multi-scale BEV features are distilled with spatial masking so supervision emphasizes useful spatial
+                regions while reducing noisy transfer.
+              </p>
+            </article>
+            <article class="card">
+              <h3>3. Asymmetric Query Adaptation</h3>
+              <p>
+                Bridges the gap between the teacher's richer representations and the student's static queries,
+                making future-aware priors easier to absorb.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="benchmark">
         <div class="section-heading">
           <p class="section-kicker">Benchmark</p>
           <h2>Quantitative Results</h2>
         </div>
-        <div class="benchmark-grid">
+        <div class="benchmark-stack">
           <article class="card benchmark-card">
             <h3>nuScenes validation set</h3>
             <div class="table-wrap">
@@ -219,49 +262,6 @@
               </table>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="section" id="method">
-        <div class="section-heading">
-          <p class="section-kicker">Method</p>
-          <h2>Framework</h2>
-        </div>
-        <div class="method-layout">
-          <div class="card figure-card">
-            <img
-              class="content-image"
-              src="assets/images/framework.png"
-              alt="Overview of the AMap framework"
-            >
-            <p class="figure-caption">
-              Overview of the AMap framework. A future-aware teacher distills prospective knowledge into a
-              current-frame student using multi-level BEV distillation and asymmetric query adaptation.
-            </p>
-          </div>
-          <div class="stack">
-            <article class="card">
-              <h3>1. Distill-from-Future Paradigm</h3>
-              <p>
-                A teacher model sees future temporal context during training, while the student is restricted
-                to the current frame and learns future-aware priors implicitly.
-              </p>
-            </article>
-            <article class="card">
-              <h3>2. Multi-Level BEV Distillation</h3>
-              <p>
-                Multi-scale BEV features are distilled with spatial masking so supervision emphasizes useful spatial
-                regions while reducing noisy transfer.
-              </p>
-            </article>
-            <article class="card">
-              <h3>3. Asymmetric Query Adaptation</h3>
-              <p>
-                Bridges the gap between the teacher's richer representations and the student's static queries,
-                making future-aware priors easier to absorb.
-              </p>
-            </article>
-          </div>
         </div>
       </section>
 
