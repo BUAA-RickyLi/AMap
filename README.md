@@ -4,7 +4,7 @@
 
 Ruikai Li, Xinrun Li, Mengwei Xie, Hao Shan, Shoumeng Qiu, Xinyuan Chang, Yizhe Fan, Feng Xiong, Han Jiang, Yilong Ren, Haiyang Yu, Mu Xu, Yang Long, Varun Ojha, Zhiyong Cui
 
-Beihang University, AMap Alibaba Group, Newcastle University, Durham University
+Beihang University, AMap Alibaba Group, Durham University, Newcastle University
 
 Equal contribution. Corresponding author included in the author list.
 
