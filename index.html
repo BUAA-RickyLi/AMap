@@ -151,7 +151,7 @@
         </div>
         <div class="card">
           <p>
-            Online High-Definition (HD) map construction is pivotal for autonomous driving. While recent approaches leverage historical temporal fusion to improve performance, we identify a critical safety flaw in this paradigm: it is inherently spatially backward-looking. These methods predominantly enhance map reconstruction in traversed areas, offering minimal improvement for the unseen road ahead. Crucially, our analysis of downstream planning tasks reveals a severe asymmetry: while rearward perception errors are often tolerable, inaccuracies in the forward region directly precipitate hazardous driving maneuvers. To bridge this safety gap, we propose AMap, a novel framework for ahead-aware online HD mapping. We pioneer a distill-from-future paradigm, where a teacher model with privileged access to future temporal contexts guides a lightweight student model restricted to the current frame. This process implicitly compresses prospective knowledge into the student model, endowing it with look-ahead capabilities at zero inference-time cost. Technically, we introduce a Multi-Level BEV Distillation strategy with spatial masking and an Asymmetric Query Adaptation module to effectively transfer future-aware representations to the student's static queries. Extensive experiments on the nuScenes and Argoverse 2 benchmark demonstrate that AMap significantly enhances current-frame perception, especially in critical forward regions, while maintaining the efficiency of single current frame inference.
+            Online High-Definition (HD) map construction is pivotal for autonomous driving. While recent approaches leverage historical temporal fusion to improve performance, <strong>we identify a critical safety flaw in this paradigm: it is inherently spatially backward-looking.</strong> These methods predominantly enhance map reconstruction in traversed areas, offering minimal improvement for the unseen road ahead. <strong>Our analysis of downstream planning tasks reveals a severe asymmetry: while rearward perception errors are often tolerable, inaccuracies in the forward region directly precipitate hazardous driving maneuvers.</strong> To bridge this safety gap, <strong>we propose AMap, a novel framework for ahead-aware online HD mapping.</strong> We pioneer a distill-from-future paradigm, where a teacher model with privileged access to future temporal contexts guides a lightweight student model restricted to the current frame. <strong>This process implicitly compresses prospective knowledge into the student model, endowing it with look-ahead capabilities at zero inference-time cost.</strong> Technically, we introduce a Multi-Level BEV Distillation strategy with spatial masking and an Asymmetric Query Adaptation module to effectively transfer future-aware representations to the student's static queries. <strong>Extensive experiments on the nuScenes and Argoverse 2 benchmark demonstrate that AMap significantly enhances current-frame perception, especially in critical forward regions, while maintaining the efficiency of single current frame inference.</strong>
           </p>
         </div>
       </section>
@@ -278,16 +278,48 @@
           <p class="section-kicker">Visualization</p>
           <h2>Qualitative Results</h2>
         </div>
-        <div class="card figure-card">
-          <img
-            class="content-image"
-            src="assets/images/qualitative.png"
-            alt="Qualitative comparison of baseline, AMap, and ground truth"
-          >
-          <p class="figure-caption">
-            Qualitative comparison of the baseline student model, AMap, and ground truth. The visual results
-            show stronger structure recovery and better alignment in critical regions.
-          </p>
+        <div class="card qualitative-carousel" data-carousel>
+          <div class="carousel-stage">
+            <figure class="carousel-slide is-active" data-carousel-slide>
+              <img
+                class="content-image"
+                src="assets/images/qualitative-nus-1.jpg"
+                alt="Qualitative results on nuScenes part 1"
+              >
+              <figcaption class="figure-caption">
+                <strong>nuScenes, Part 1.</strong> From left to right: multi-view inputs, MapTracker predictions, AMap predictions, and ground truth.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" data-carousel-slide>
+              <img
+                class="content-image"
+                src="assets/images/qualitative-nus-2.jpg"
+                alt="Qualitative results on nuScenes part 2"
+              >
+              <figcaption class="figure-caption">
+                <strong>nuScenes, Part 2.</strong> AMap shows stronger robustness across weather and lighting conditions while better preserving map topology.
+              </figcaption>
+            </figure>
+            <figure class="carousel-slide" data-carousel-slide>
+              <img
+                class="content-image"
+                src="assets/images/qualitative-av2.jpg"
+                alt="Qualitative results on Argoverse 2"
+              >
+              <figcaption class="figure-caption">
+                <strong>Argoverse 2.</strong> Additional qualitative comparisons show better alignment and cleaner structural recovery in challenging scenes.
+              </figcaption>
+            </figure>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Previous slide">&#8249;</button>
+            <div class="carousel-dots">
+              <button class="carousel-dot is-active" type="button" data-carousel-dot aria-label="Show slide 1"></button>
+              <button class="carousel-dot" type="button" data-carousel-dot aria-label="Show slide 2"></button>
+              <button class="carousel-dot" type="button" data-carousel-dot aria-label="Show slide 3"></button>
+            </div>
+            <button class="carousel-arrow" type="button" data-carousel-next aria-label="Next slide">&#8250;</button>
+          </div>
         </div>
       </section>
 
