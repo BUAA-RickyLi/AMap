@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMap | CVPR 2026</title>
+  <meta
+    name="description"
+    content="AMap: Distilling Future Priors for Ahead-Aware Online HD Map Construction. Project page for the CVPR 2026 paper."
+  >
+  <meta property="og:title" content="AMap | CVPR 2026">
+  <meta
+    property="og:description"
+    content="Ahead-aware online HD map construction with future-prior distillation."
+  >
+  <meta
+    property="og:image"
+    content="assets/images/teaser.png"
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <a class="brand" href="#">
+          <span class="brand-mark">A</span>
+          <span class="brand-text">AMap</span>
+        </a>
+        <div class="topbar-nav">
+          <a class="topbar-link" href="#abstract">Abstract</a>
+          <a class="topbar-link" href="#method">Method</a>
+          <a class="topbar-link" href="#results">Results</a>
+          <a class="topbar-link" href="#video">Video</a>
+          <a class="topbar-link" href="#citation">Citation</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <p class="eyebrow">CVPR 2026 Accepted Paper</p>
+        <h1>AMap: Distilling Future Priors for Ahead-Aware Online HD Map Construction</h1>
+        <p class="subtitle">
+          Distilling future temporal priors into a current-frame online HD mapper for stronger forward-region
+          perception at zero extra inference-time cost.
+        </p>
+
+        <div class="authors">
+          <span>Ruikai Li<sup>1,2,*</sup></span>
+          <span>Xinrun Li<sup>3,*</sup></span>
+          <span>Mengwei Xie<sup>2</sup></span>
+          <span>Hao Shan<sup>1</sup></span>
+          <span>Shoumeng Qiu<sup>3</sup></span>
+          <span>Xinyuan Chang<sup>2</sup></span>
+          <span>Yizhe Fan<sup>1</sup></span>
+          <span>Feng Xiong<sup>2</sup></span>
+          <span>Han Jiang<sup>1</sup></span>
+          <span>Yilong Ren<sup>1</sup></span>
+          <span>Haiyang Yu<sup>1</sup></span>
+          <span>Mu Xu<sup>2</sup></span>
+          <span>Yang Long<sup>4</sup></span>
+          <span>Varun Ojha<sup>3</sup></span>
+          <span>Zhiyong Cui<sup>1,&dagger;</sup></span>
+        </div>
+
+        <div class="affiliations">
+          <p><sup>1</sup> State Key Lab of Intelligent Transportation System, Beihang University, China</p>
+          <p><sup>2</sup> AMap, Alibaba Group, China</p>
+          <p><sup>3</sup> Newcastle University, England</p>
+          <p><sup>4</sup> Durham University, England</p>
+          <p><sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>&dagger;</sup> Corresponding author</p>
+        </div>
+
+        <div class="cta-row">
+          <a class="button primary" href="https://arxiv.org/pdf/2512.19150" target="_blank" rel="noreferrer">Paper</a>
+          <a class="button secondary" href="https://arxiv.org/abs/2512.19150" target="_blank" rel="noreferrer">arXiv</a>
+          <a class="button secondary" href="https://github.com/BUAA-RickyLi/AMap" target="_blank" rel="noreferrer">Code</a>
+          <a class="button secondary" href="#video">Video</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <figure class="panel-card panel-card-large image-card">
+          <p class="panel-label">Teaser Figure</p>
+          <img
+            src="assets/images/teaser.png"
+            alt="AMap teaser figure"
+          >
+          <figcaption>
+            SOTA temporal methods are biased toward rear-region improvements, while AMap explicitly targets
+            stronger ahead-aware perception via future-prior distillation.
+          </figcaption>
+        </figure>
+        <div class="panel-grid">
+          <div class="panel-card">
+            <p class="panel-label">Core Idea</p>
+            <p>Train a current-frame student with a future-aware teacher so it learns look-ahead priors without extra runtime.</p>
+          </div>
+          <div class="panel-card">
+            <p class="panel-label">Benchmarks</p>
+            <p>Validated on nuScenes and Argoverse 2 with consistent gains in A-mAP and no loss of single-frame efficiency.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="abstract">
+        <div class="section-heading">
+          <p class="section-kicker">Overview</p>
+          <h2>Abstract</h2>
+        </div>
+        <div class="card">
+          <p>
+            Online High-Definition (HD) map construction is pivotal for autonomous driving. While recent
+            approaches leverage historical temporal fusion to improve performance, they remain spatially
+            backward-looking and provide limited benefit for the unseen road ahead. AMap addresses this gap
+            with an ahead-aware online HD mapping framework based on a distill-from-future paradigm: a teacher
+            with privileged access to future temporal context supervises a lightweight student restricted to the
+            current frame, implicitly injecting look-ahead capability without extra inference-time cost.
+          </p>
+          <p>
+            Technically, AMap introduces Multi-Level BEV Distillation with spatial masking and an Asymmetric
+            Query Adaptation module to transfer future-aware representations effectively. Experiments on
+            nuScenes and Argoverse 2 show strong gains in current-frame perception, especially in critical
+            forward regions, while preserving the efficiency of single-frame inference.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="highlights">
+        <div class="section-heading">
+          <p class="section-kicker">Why It Matters</p>
+          <h2>Key Highlights</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Ahead-aware mapping</h3>
+            <p>
+              Reorients online HD mapping toward the forward region that is most critical for planning and safe
+              driving decisions.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Distill from future</h3>
+            <p>
+              Uses future temporal context only during training, so deployment remains a lightweight current-frame
+              pipeline.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Zero extra runtime cost</h3>
+            <p>
+              Matches the efficiency of single-frame inference while improving current-frame forward-region quality.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="method">
+        <div class="section-heading">
+          <p class="section-kicker">Method</p>
+          <h2>Framework</h2>
+        </div>
+        <div class="method-layout">
+          <div class="card figure-card">
+            <img
+              class="content-image"
+              src="assets/images/framework.png"
+              alt="Overview of the AMap framework"
+            >
+            <p class="figure-caption">
+              Overview of the AMap framework. A future-aware teacher distills prospective knowledge into a
+              current-frame student using multi-level BEV distillation and asymmetric query adaptation.
+            </p>
+          </div>
+          <div class="stack">
+            <article class="card">
+              <h3>1. Distill-from-Future Paradigm</h3>
+              <p>
+                A teacher model sees future temporal context during training, while the student is restricted
+                to the current frame and learns future-aware priors implicitly.
+              </p>
+            </article>
+            <article class="card">
+              <h3>2. Multi-Level BEV Distillation</h3>
+              <p>
+                Multi-scale BEV features are distilled with spatial masking so supervision emphasizes useful spatial
+                regions while reducing noisy transfer.
+              </p>
+            </article>
+            <article class="card">
+              <h3>3. Asymmetric Query Adaptation</h3>
+              <p>
+                Bridges the gap between the teacher's richer representations and the student's static queries,
+                making future-aware priors easier to absorb.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="results">
+        <div class="section-heading">
+          <p class="section-kicker">Results</p>
+          <h2>Performance Snapshot</h2>
+        </div>
+        <div class="results-grid">
+          <article class="card stat-card">
+            <p class="stat-label">nuScenes R50</p>
+            <p class="stat-value">70.19 A-mAP</p>
+            <p class="stat-copy">Improves over the current-frame MapTracker baseline by +0.89 A-mAP and +0.96 mAP.</p>
+          </article>
+          <article class="card stat-card">
+            <p class="stat-label">nuScenes R18</p>
+            <p class="stat-value">66.28 A-mAP</p>
+            <p class="stat-copy">Improves over the current-frame MapTracker baseline by +1.65 A-mAP and +1.68 mAP.</p>
+          </article>
+          <article class="card stat-card">
+            <p class="stat-label">Argoverse 2 R18</p>
+            <p class="stat-value">67.81 A-mAP</p>
+            <p class="stat-copy">Improves over the current-frame MapTracker baseline by +2.52 A-mAP and +1.56 mAP.</p>
+          </article>
+        </div>
+        <div class="card">
+          <p>
+            On nuScenes, AMap reaches 69.26 mAP / 70.19 A-mAP with an R50 backbone and 64.49 mAP / 66.28 A-mAP
+            with an R18 backbone, while preserving single-frame inference speed. On Argoverse 2, it reaches
+            65.25 mAP / 67.81 A-mAP, showing that the ahead-aware gains transfer across datasets.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="qualitative">
+        <div class="section-heading">
+          <p class="section-kicker">Visualization</p>
+          <h2>Qualitative Results</h2>
+        </div>
+        <div class="card figure-card">
+          <img
+            class="content-image"
+            src="assets/images/qualitative.png"
+            alt="Qualitative comparison of baseline, AMap, and ground truth"
+          >
+          <p class="figure-caption">
+            Qualitative comparison of the baseline student model, AMap, and ground truth. The visual results
+            show stronger structure recovery and better alignment in critical regions.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="video">
+        <div class="section-heading">
+          <p class="section-kicker">Presentation</p>
+          <h2>Talk / Demo Video</h2>
+        </div>
+        <div class="card video-card">
+          <div class="video-placeholder">
+            <div class="video-badge">Video Placeholder</div>
+            <h3>Add your YouTube or Bilibili talk here</h3>
+            <p>
+              Once your presentation is ready, replace this block with an embedded video iframe or a linked
+              thumbnail. The button in the hero section already points visitors to this area.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="resources">
+        <div class="section-heading">
+          <p class="section-kicker">Resources</p>
+          <h2>Links</h2>
+        </div>
+        <div class="resource-grid">
+          <a class="resource-card" href="https://arxiv.org/pdf/2512.19150" target="_blank" rel="noreferrer">
+            <span class="resource-title">Paper PDF</span>
+            <span class="resource-copy">Read the full paper on arXiv.</span>
+          </a>
+          <a class="resource-card" href="https://arxiv.org/abs/2512.19150" target="_blank" rel="noreferrer">
+            <span class="resource-title">arXiv Entry</span>
+            <span class="resource-copy">Metadata, versions, and citation details.</span>
+          </a>
+          <a class="resource-card" href="https://github.com/BUAA-RickyLi/AMap" target="_blank" rel="noreferrer">
+            <span class="resource-title">Code Repository</span>
+            <span class="resource-copy">Official implementation repository for AMap.</span>
+          </a>
+          <div class="resource-card muted">
+            <span class="resource-title">Demo Video</span>
+            <span class="resource-copy">Add a YouTube or Bilibili talk/demo link here.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="citation">
+        <div class="section-heading">
+          <p class="section-kicker">BibTeX</p>
+          <h2>Citation</h2>
+        </div>
+        <div class="card">
+          <div class="citation-toolbar">
+            <p class="citation-note">Use this BibTeX entry when citing the CVPR 2026 paper.</p>
+            <button class="copy-button" type="button" data-copy-target="amap-bibtex">Copy BibTeX</button>
+          </div>
+          <pre><code id="amap-bibtex">@inproceedings{li2026amap,
+  title   = {AMap: Distilling Future Priors for Ahead-Aware Online HD Map Construction},
+  author  = {Li, Ruikai and Li, Xinrun and Xie, Mengwei and Shan, Hao and Qiu, Shoumeng and
+             Chang, Xinyuan and Fan, Yizhe and Xiong, Feng and Jiang, Han and Ren, Yilong and
+             Yu, Haiyang and Xu, Mu and Long, Yang and Ojha, Varun and Cui, Zhiyong},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year    = {2026}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Copyright © 2026 AMap Project.</p>
+      <p>
+        This page uses figures and quantitative results adapted from the paper and source materials in the
+        project directory.
+      </p>
+    </footer>
+  </div>
+  <script src="assets/script.js"></script>
+</body>
+</html>
