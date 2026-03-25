@@ -205,29 +205,32 @@ code {
   margin-top: 26px;
 }
 
-.authors span {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--text);
-  font-size: 1rem;
-  font-weight: 500;
-}
-
 .authors-academic {
-  gap: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   max-width: 920px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.authors-academic span {
-  display: inline;
-  white-space: nowrap;
+.author-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin: 0;
 }
 
-.authors-academic span:not(:last-child)::after {
+.author-row span {
+  display: inline;
+  white-space: nowrap;
+  color: var(--text);
+  font-size: 1.06rem;
+  font-weight: 500;
+}
+
+.author-row span:not(:last-child)::after {
   content: ",\00a0";
   color: #9aa8b9;
   font-weight: 400;
@@ -245,7 +248,7 @@ code {
   margin-top: 18px;
   color: var(--muted);
   text-align: center;
-  font-size: 0.98rem;
+  font-size: 1.02rem;
 }
 
 .affiliations p + p {
@@ -269,6 +272,10 @@ code {
 .affiliation-line span,
 .affiliation-note span {
   display: inline;
+}
+
+.affiliation-line-primary {
+  font-size: 1.03rem;
 }
 
 .affiliation-line span:not(:last-child)::after,
@@ -659,6 +666,7 @@ code {
   }
 
   .authors-academic span,
+  .author-row span,
   .affiliation-line span,
   .affiliation-note span {
     white-space: normal;
@@ -667,6 +675,7 @@ code {
   }
 
   .authors-academic span::after,
+  .author-row span::after,
   .affiliation-line span::after,
   .affiliation-note span::after {
     content: "";
